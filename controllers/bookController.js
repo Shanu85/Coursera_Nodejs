@@ -15,6 +15,7 @@ const getAllBooks=asyncHandler(async(req,res)=>{
 
 // type=1 -> get data by ISBN, para -> ISBN Number
 // type=2 -> get data by author, para -> Author
+// type=3 -> get data by title, para -> BookTitle
 const helper=(type,para)=>{ 
     let booksData=readBookData()['books']
     var keys = Object.keys( booksData );
