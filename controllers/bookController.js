@@ -77,6 +77,13 @@ const getTitleBook=asyncHandler(async(req,res)=>{
     return res.status(200).json(data)
 })
 
+const getBookReview=asyncHandler(async(req,res)=>{
+    const isbn=req.params.isbn
+
+    let data=helper(1,isbn).reviews
+
+    return res.status(200).json(data)
+})
 
 const writeReview=asyncHandler(async(req,res)=>{
     const {isbn,review}=req.params
@@ -165,4 +172,4 @@ const deleteReview=asyncHandler(async(req,res)=>{
     return res.status(200).json({'message':`Reviews for the ISBN ${isbn} posted by user ${username} deleted!`})
 })
 
-module.exports={getAllBooks,getISBNBook,getAuthorBook,getTitleBook,writeReview,deleteReview}
+module.exports={getAllBooks,getISBNBook,getAuthorBook,getTitleBook,writeReview,deleteReview,getBookReview}
